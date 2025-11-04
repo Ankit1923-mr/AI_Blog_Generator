@@ -69,29 +69,52 @@ graph TD
 --------------------
 
 `AI_Blog_Generator/
+
 ├── agents/
-│   └── blog_writer_agent.py       # Core logic: research + writing workflow
+
+│   └── blog_writer_agent.py       # Core logic: research + writing workflow
+
 │
+
 ├── llm/
-│   └── openrouter_llm.py          # Handles OpenRouter model communication
+
+│   └── openrouter_llm.py          # Handles OpenRouter model communication
+
 │
+
 ├── tools/
-│   ├── wikipedia_tool.py          # Wikipedia research integration
-│   └── duckduckgo_tool.py         # DuckDuckGo web scraping integration
+
+│   ├── wikipedia_tool.py          # Wikipedia research integration
+
+│   └── duckduckgo_tool.py         # DuckDuckGo web scraping integration
+
 │
-├── outputs/                       # Stores generated .md blogs
+
+├── outputs/                       # Stores generated .md blogs
+
 │
+
 ├── frontend/
-│   ├── index.html                 # Main webpage (ChatGPT-style UI)
-│   ├── style.css                  # Futuristic dark glassy theme
-│   └── script.js                  # Handles user input + backend calls
+
+│   ├── index.html                 # Main webpage (ChatGPT-style UI)
+
+│   ├── style.css                  # Futuristic dark glassy theme
+
+│   └── script.js                  # Handles user input + backend calls
+
 │
-├── app.py                         # Flask backend entry point
-├── main.py                        # Local CLI interface for testing
-├── requirements.txt               # Python dependencies
-├── .env                           # API keys (not committed)
-├── .gitignore                     # Files to ignore
-└── README.md                      # This documentation 🚀`
+
+├── app.py                         # Flask backend entry point
+
+├── main.py                        # Local CLI interface for testing
+
+├── requirements.txt               # Python dependencies
+
+├── .env                           # API keys (not committed)
+
+├── .gitignore                     # Files to ignore
+
+└── README.md                      # This documentation 🚀`
 
 * * * * *
 
@@ -106,8 +129,11 @@ cd AI_Blog_Generator`
 ### 2️⃣ Create Virtual Environment
 
 `python -m venv venv
+
 venv\Scripts\activate   # Windows
+
 # or
+
 source venv/bin/activate  # macOS/Linux`
 
 ### 3️⃣ Install Dependencies
@@ -147,6 +173,7 @@ Open `/frontend/index.html` directly in your browser.
 4.  Set:
 
     `Start Command: python app.py
+
     Environment: Python 3.11+`
 
 5.  Add environment variable:
@@ -172,7 +199,9 @@ Then:
 2.  Under "Source", select:
 
     `Deploy from branch
+
     Branch: gh-pages
+    
     Folder: /(root)`
 
 3.  Click **Save** ✅
