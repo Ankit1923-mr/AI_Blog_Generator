@@ -101,8 +101,6 @@ blog-agent-project/
 
 ├── agents/
 
-│   ├── blog\_agent.py             # Original LangChain agent (research logic)
-
 │   └── blog\_writer\_agent.py      # Final two-stage research + writer pipeline
 
 │
@@ -136,7 +134,6 @@ blog-agent-project/
 └── README.md
 
 
-
 💻 Usage
 --------
 
@@ -157,10 +154,13 @@ Enter your blog topic: Artificial Intelligence in Healthcare
 # Artificial Intelligence in Healthcare
 
 **Heading:**
+
 The Future of Healthcare: Harnessing Artificial Intelligence for Better Patient Outcomes
 
 **Introduction:**
+
 Artificial Intelligence (AI) is revolutionizing various industries, and one of the areas where it is making a significant impact is healthcare...
+
 ...
 
 💾 Saved to: outputs/blog_Artificial_Intelligence_in_Healthcare_20251104_200047.md`
@@ -228,8 +228,11 @@ AI is reshaping healthcare by improving patient care, optimizing workflows, and 
 Each generated blog is automatically saved in the `/outputs` folder:
 
 `outputs/
+
 ├── blog_Artificial_Intelligence_in_Healthcare_20251104_200047.md
+
 ├── blog_The_Future_of_Renewable_Energy_20251104_193854.md
+
 └── blog_Climate_Change_and_Technology_20251105_102030.md`
 
 * * * * *
@@ -238,11 +241,17 @@ Each generated blog is automatically saved in the `/outputs` folder:
 ---------------
 
 `langchain<0.3.0
+
 python-dotenv>=1.0.0
+
 wikipedia-api>=0.5.8
+
 duckduckgo-search>=5.3.1
+
 requests>=2.28.0
+
 tqdm>=4.65.0
+
 numpy==1.25.2`
 
 * * * * *
@@ -261,8 +270,8 @@ numpy==1.25.2`
 👨‍💻 Author
 ------------
 
-**Developed by:** [Ankit Kumar Mishra](https://github.com/Ankit1923-mr)\
-**Goal:** Internship-ready demonstration of agent-based AI development using LangChain and OpenRouter.\
+**Developed by:** [Ankit Kumar](https://github.com/Ankit1923-mr)\
+**Goal:** Demonstration of agent-based AI development using LangChain and OpenRouter.\
 **Date:** November 2025
 
 * * * * *
@@ -278,13 +287,9 @@ It's not just another text generator --- it's a **thinking, researching, and wri
 ### ⭐ If you like this project, don't forget to star the repo!
 
 `git add .
+
 git commit -m "Final working version of Blog Generation System"
+
 git push origin main`
 
 * * * * *
-
- `---
-✅ Once you paste this into your repository root as `README.md`,
-your project will be **professional, submission-ready, and portfolio-grade**.
-
-Would you like me to generate a **shorter GitHub description + tagline (for the repo header and README badges)** next --- so your repository looks polished at first glance?`
