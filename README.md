@@ -1,295 +1,252 @@
-# 🧠 Blog Generation System (LangChain + OpenRouter)
+# 🤖 AI Blog Generator
 
-> **An intelligent agent-based system that researches and writes high-quality blogs automatically using AI and real-world data.**
-
----
-
-## 📘 Overview
-
-**Blog Generation System** is an AI-powered, agent-based Python application that automatically:
-1. **Researches** a given topic using Wikipedia and DuckDuckGo search tools.
-2. **Generates** a well-structured, factual, and human-like blog using the **OpenRouter API**.
-3. **Saves** the final blog in clean Markdown format for easy publishing or documentation.
-
-This project demonstrates the use of **LangChain Agents**, **tool orchestration**, and **LLM integration** to build intelligent systems that combine reasoning, research, and creativity.
+[![Deploy Backend on Render](https://img.shields.io/badge/Deploy%20Backend-Render-0099ff?style=for-the-badge&logo=render)](https://render.com/)
+[![View Frontend on GitHub Pages](https://img.shields.io/badge/View%20Frontend-GitHub%20Pages-181717?style=for-the-badge&logo=github)](https://ankit1923-mr.github.io/AI_Blog_Generator/)
+[![Python](https://img.shields.io/badge/Python-3.11+-blue?style=for-the-badge&logo=python)](https://www.python.org/)
+[![LangChain](https://img.shields.io/badge/LangChain-AI_Framework-43B02A?style=for-the-badge)](https://www.langchain.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 ---
 
-## 🚀 Key Features
+## 🧭 Overview
 
-✅ Multi-tool research system (Wikipedia + DuckDuckGo)  
-✅ Blog generation using **OpenRouter LLM (GPT-3.5 / LLaMA models)**  
-✅ Two-stage process: **Research → Writing**  
-✅ Structured blogs: Heading, Introduction, Content, Summary  
-✅ Auto-save as `.md` with timestamps  
-✅ Fully CLI-based (no UI required)  
-✅ Modular code design (LLM, Tools, Agents separated)  
+**AI Blog Generator** is a full-stack AI-powered web app that generates complete, well-researched, and publication-ready blog posts based on any topic you provide.  
+It combines **LangChain**, **OpenRouter LLM**, and **web-based research (Wikipedia + DuckDuckGo)** to craft engaging, factual, and SEO-optimized blogs with a futuristic ChatGPT-like interface.
 
 ---
 
-## 🧩 Architecture
-```
-User Input (Topic)
-       │
-       ▼
-┌───────────────────┐
-│  Research Agent   │
-│ ├─ Wikipedia Tool│
-│ └─ DuckDuckGo Tool│
-└───────────────────┘
-       │
-       ▼
-Combined Research Text
-       │
-       ▼
-┌───────────────────┐
-│   Writer Module   │
-│ → Uses OpenRouter │
-│ → Generates Blog  │
-└───────────────────┘
-       │
-       ▼
-Markdown Blog (.md File)
+## 🌍 Live Demo
 
+- 🌐 **Frontend (GitHub Pages):** [https://ankit1923-mr.github.io/AI_Blog_Generator/](https://ankit1923-mr.github.io/AI_Blog_Generator/)  
+- ⚙️ **Backend (Render):** [https://ai-blog-generator-backend-h2mv.onrender.com](https://ai-blog-generator-backend-h2mv.onrender.com)
+
+---
+
+## 🧠 System Architecture
+
+```mermaid
+graph TD
+    A[🧑 User Enters Topic] --> B[💻 Frontend (HTML/CSS/JS)]
+    B -->|POST /generate| C[⚙️ Flask Backend (Render)]
+    C --> D[🔍 Research Tools<br>(Wikipedia + DuckDuckGo)]
+    D --> E[🧠 OpenRouter LLM via LangChain]
+    E --> F[✍️ Blog Writer Agent<br>(Heading • Intro • Content • Summary)]
+    F --> G[📦 Blog Saved as Markdown<br>in /outputs]
+    G --> H[🌐 Displayed on Frontend<br>(ChatGPT-like Interface)]
+
+    style A fill:#111,stroke:#6cf,stroke-width:1px
+    style B fill:#0b1c2d,stroke:#2eb8ff,stroke-width:1px
+    style C fill:#102030,stroke:#2eb8ff,stroke-width:1px
+    style D fill:#112d50,stroke:#58a6ff,stroke-width:1px
+    style E fill:#162842,stroke:#58a6ff,stroke-width:1px
+    style F fill:#1b3a5a,stroke:#7dc3ff,stroke-width:1px
+    style G fill:#0d2438,stroke:#4fc3f7,stroke-width:1px
+    style H fill:#071b2d,stroke:#00e5ff,stroke-width:1px
 ```
 
----
+🚀 Features
+-----------
 
-## 🛠️ Tech Stack
+✅ **ChatGPT-style UI** --- Clean, glassy interface built with pure HTML/CSS/JS\
+✅ **AI-generated blog posts** --- Structured (Heading, Intro, Content, Summary)\
+✅ **Research-backed content** --- Combines Wikipedia + DuckDuckGo search results\
+✅ **Markdown output** --- Automatically saved in `/outputs` folder\
+✅ **Real-time AI feel** --- Smooth animations and futuristic visuals\
+✅ **Fully hosted** --- Backend on Render, Frontend on GitHub Pages
 
-| Component | Technology |
-|------------|-------------|
-| **Programming Language** | Python 3.11 |
-| **LLM Access** | OpenRouter API |
-| **AI Framework** | LangChain 0.2.17 |
-| **Knowledge Sources** | Wikipedia API, DuckDuckGo Search |
-| **Output Format** | Markdown (.md) |
-| **Environment Management** | Python `venv` |
+* * * * *
 
----
+🧩 Project Structure
+--------------------
 
-## ⚙️ Installation
+`AI_Blog_Generator/
+├── agents/
+│   └── blog_writer_agent.py       # Core logic: research + writing workflow
+│
+├── llm/
+│   └── openrouter_llm.py          # Handles OpenRouter model communication
+│
+├── tools/
+│   ├── wikipedia_tool.py          # Wikipedia research integration
+│   └── duckduckgo_tool.py         # DuckDuckGo web scraping integration
+│
+├── outputs/                       # Stores generated .md blogs
+│
+├── frontend/
+│   ├── index.html                 # Main webpage (ChatGPT-style UI)
+│   ├── style.css                  # Futuristic dark glassy theme
+│   └── script.js                  # Handles user input + backend calls
+│
+├── app.py                         # Flask backend entry point
+├── main.py                        # Local CLI interface for testing
+├── requirements.txt               # Python dependencies
+├── .env                           # API keys (not committed)
+├── .gitignore                     # Files to ignore
+└── README.md                      # This documentation 🚀`
 
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/Ankit1923-mr/AI_Blog_Generator.git
-cd AI_Blog_Generator
-```
+* * * * *
 
-### 2️⃣ Create and Activate Virtual Environment
+⚙️ Local Setup Guide
+--------------------
 
-``` bash
-py -3.11 -m venv venv311
-venv311\Scripts\activate
-```
+### 1️⃣ Clone Repository
+
+`git clone https://github.com/Ankit1923-mr/AI_Blog_Generator.git
+cd AI_Blog_Generator`
+
+### 2️⃣ Create Virtual Environment
+
+`python -m venv venv
+venv\Scripts\activate   # Windows
+# or
+source venv/bin/activate  # macOS/Linux`
 
 ### 3️⃣ Install Dependencies
 
-```bash
-pip install --upgrade pip
-pip install -r requirements.txt
-```
+`pip install -r requirements.txt`
 
-### 4️⃣ Add Your OpenRouter API Key
-```
-OPENROUTER_API_KEY=your_api_key_here
-```
+### 4️⃣ Add API Key
 
-blog-agent-project/
+Create a `.env` file in the root directory:
 
-│
+`OPENROUTER_API_KEY=your_openrouter_api_key_here`
 
-├── agents/
+### 5️⃣ Run Flask Server
 
-│   └── blog\_writer\_agent.py      # Final two-stage research + writer pipeline
+`python app.py`
 
-│
+Backend available at:\
+👉 `http://127.0.0.1:5000`
 
-├── tools/
+### 6️⃣ Run Frontend
 
-│   ├── wikipedia\_tool.py         # Wikipedia research tool
-
-│   └── duckduckgo\_tool.py        # DuckDuckGo research tool
-
-│
-
-├── llm/
-
-│   └── openrouter\_llm.py         # Custom LangChain LLM wrapper for OpenRouter
-
-│
-
-├── outputs/                      # Auto-saved blog outputs
-
-│   └── blog\_AI\_in\_Healthcare\_\*.md
-
-│
-
-├── main.py                       # CLI entrypoint
-
-├── requirements.txt
-
-├── .env.example
-
-└── README.md
-
-
-💻 Usage
---------
-
-Run the system using:
-
-`python main.py`
-
-You'll see:
-
-`🧠 Blog Generation System (OpenRouter + LangChain)
-
-Enter your blog topic: Artificial Intelligence in Healthcare
-
-🔍 Gathering research material...
-
-📝 --- Generated Blog ---
-
-# Artificial Intelligence in Healthcare
-
-**Heading:**
-
-The Future of Healthcare: Harnessing Artificial Intelligence for Better Patient Outcomes
-
-**Introduction:**
-
-Artificial Intelligence (AI) is revolutionizing various industries, and one of the areas where it is making a significant impact is healthcare...
-
-...
-
-💾 Saved to: outputs/blog_Artificial_Intelligence_in_Healthcare_20251104_200047.md`
+Open `/frontend/index.html` directly in your browser.
 
 * * * * *
 
-🧠 Example Output
------------------
+🌐 Deployment
+-------------
 
-Below is a snippet from an actual generated blog:
+### 🚀 Backend on Render
 
-`# Artificial Intelligence in Healthcare
+1.  Push your repo to GitHub.
 
-**Introduction:**
-Artificial Intelligence (AI) is revolutionizing various industries, and one of the areas where it is making a significant impact is healthcare. By leveraging the power of AI, healthcare professionals are able to enhance patient care, improve diagnostics, optimize treatment plans, and streamline administrative tasks.
+2.  Go to [Render.com](https://render.com/).
 
-**Content:**
-1. **Enhanced Diagnostics:** AI algorithms can analyze vast amounts of medical data with incredible speed and accuracy.
-2. **Personalized Treatment Plans:** AI creates data-driven, individualized healthcare strategies.
-3. **Predictive Analytics:** AI helps predict disease progression and identify potential risks.
-4. **Administrative Efficiency:** Automates scheduling, documentation, and billing.
-5. **Ethical Considerations:** Addresses privacy, bias, and transparency challenges.
+3.  Create a **New Web Service** → connect repo.
 
-**Summary:**
-AI is reshaping healthcare by improving patient care, optimizing workflows, and driving better health outcomes.`
+4.  Set:
 
-* * * * *
+    `Start Command: python app.py
+    Environment: Python 3.11+`
 
-🧩 How It Works (Step-by-Step)
-------------------------------
+5.  Add environment variable:
 
-1.  **User enters a topic**
+    `OPENROUTER_API_KEY = your_api_key`
 
-    -   Example: `"Artificial Intelligence in Healthcare"`
-
-2.  **Research Phase**
-
-    -   Wikipedia + DuckDuckGo tools fetch relevant information.
-
-3.  **Synthesis Phase**
-
-    -   OpenRouter LLM converts that research into a structured blog.
-
-4.  **Output Phase**
-
-    -   Blog is displayed on the console and saved in `/outputs/`.
+6.  Deploy 🚀\
+    Live at:\
+    `https://ai-blog-generator-backend-h2mv.onrender.com`
 
 * * * * *
 
-🧠 Concept Highlights
----------------------
+### 🌎 Frontend on GitHub Pages
 
-| Concept | Description |
+Since your frontend is already in `/frontend`:
+
+`git subtree push --prefix frontend origin gh-pages`
+
+Then:
+
+1.  Go to **Settings → Pages**
+
+2.  Under "Source", select:
+
+    `Deploy from branch
+    Branch: gh-pages
+    Folder: /(root)`
+
+3.  Click **Save** ✅
+
+Your site will be live at:\
+`https://ankit1923-mr.github.io/AI_Blog_Generator/`
+
+* * * * *
+
+🧾 API Reference
+----------------
+
+### Endpoint
+
+`POST /generate`
+
+### Request Example
+
+`{
+  "topic": "Artificial Intelligence in Healthcare"
+}`
+
+### Response Example
+
+`{
+  "blog": "# Artificial Intelligence in Healthcare\n\n**Heading:** ..."
+}`
+
+* * * * *
+
+🎨 UI Preview
+-------------
+
+*A dark-glass ChatGPT-style layout with floating input bar, glowing buttons, and markdown-rendered results.*
+
+* * * * *
+
+🧩 Tech Stack
+-------------
+
+| Layer | Technology |
 | --- | --- |
-| **Agent-Based AI** | Uses LangChain to simulate decision-making and reasoning. |
-| **Tool Integration** | Wikipedia and DuckDuckGo tools act as the agent's "research assistants." |
-| **LLM Orchestration** | OpenRouter model converts research into fluent, structured text. |
-| **Composability** | The system separates concerns: research, writing, and saving. |
+| **Frontend** | HTML, CSS, JavaScript |
+| **Backend** | Python (Flask) |
+| **AI Model** | OpenRouter (GPT-based) |
+| **Framework** | LangChain |
+| **Data Sources** | Wikipedia, DuckDuckGo |
+| **Hosting** | Render (Backend), GitHub Pages (Frontend) |
 
 * * * * *
 
-🧾 Sample Outputs Folder
+🧠 Environment Variables
 ------------------------
 
-Each generated blog is automatically saved in the `/outputs` folder:
-
-`outputs/
-
-├── blog_Artificial_Intelligence_in_Healthcare_20251104_200047.md
-
-├── blog_The_Future_of_Renewable_Energy_20251104_193854.md
-
-└── blog_Climate_Change_and_Technology_20251105_102030.md`
+| Variable | Description |
+| --- | --- |
+| `OPENROUTER_API_KEY` | Your private API key from [OpenRouter.ai](https://openrouter.ai) |
 
 * * * * *
 
-🧰 Requirements
----------------
-
-`langchain<0.3.0
-
-python-dotenv>=1.0.0
-
-wikipedia-api>=0.5.8
-
-duckduckgo-search>=5.3.1
-
-requests>=2.28.0
-
-tqdm>=4.65.0
-
-numpy==1.25.2`
-
-* * * * *
-
-🌟 Future Improvements
-----------------------
-
-🔹 Multi-Agent Collaboration (Researcher, Writer, Editor)\
-🔹 Integration with **LlamaIndex** for knowledge retrieval\
-🔹 Blog Summarization & SEO Keyword Optimization\
-🔹 Add Image Integration via Unsplash API\
-🔹 Web UI using Streamlit / FastAPI
-
-* * * * *
-
-👨‍💻 Author
+🧑‍💻 Author
 ------------
 
-**Developed by:** [Ankit Kumar](https://github.com/Ankit1923-mr)\
-**Goal:** Demonstration of agent-based AI development using LangChain and OpenRouter.\
-**Date:** November 2025
+**Ankit Kumar**\
+💼 [GitHub Profile](https://github.com/Ankit1923-mr)
 
 * * * * *
 
-🏁 Summary
+📜 License
 ----------
 
-This project showcases how **LLMs can act as intelligent agents** that reason, research, and write in structured formats.\
-It's not just another text generator --- it's a **thinking, researching, and writing AI system** built using real tools and modern frameworks.
+This project is licensed under the **MIT License**.\
+You are free to use, modify, and distribute this software with proper credit.
 
 * * * * *
 
-### ⭐ If you like this project, don't forget to star the repo!
+💬 Feedback & Contributions
+---------------------------
 
-`git add .
-
-git commit -m "Final working version of Blog Generation System"
-
-git push origin main`
+Pull requests are welcome!\
+If you'd like to contribute (e.g., UI enhancements or AI prompt optimization), feel free to fork the repo and submit a PR.
 
 * * * * *
+
+**✨ The Future of Blogging is AI-Driven --- You Just Provide the Idea. ✨**
+
