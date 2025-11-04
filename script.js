@@ -12,7 +12,7 @@
 // const BACKEND_URL = window.location.port === '5500'
 //   ? 'http://127.0.0.1:5000/generate'
 //   : window.location.origin + '/generate';
-const BACKEND_URL = "https://ai-blog-generator-backend.onrender.com/generate";
+const BACKEND_URL = "https://ai-blog-generator-backend-h2mv.onrender.com/generate";
 
 const messagesEl = document.getElementById('messages');
 const sendBtn = document.getElementById('sendBtn');
