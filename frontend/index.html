@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Blog Studio — Chat UI Mode</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Light SEO -->
+  <meta name="description" content="AI Blog Studio — modern ChatGPT-like UI for generating researched blogs (LangChain + OpenRouter)"/>
+</head>
+<body>
+  <div id="app">
+    <!-- Left Sidebar -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <div class="logo-ico">🧠</div>
+          <div class="brand-text">
+            <div class="brand-title">AI Blog Studio</div>
+            <div class="brand-sub">Research · Compose · Publish</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="nav-list" aria-label="Conversations">
+        <button class="new-chat" id="newChatBtn">+ New Blog</button>
+
+        <div id="convos" class="convos">
+          <!-- conversation list items -->
+        </div>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-foot">
+          <small>Model: <strong>OpenRouter / GPT</strong></small>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Chat Area -->
+    <main id="main" class="main">
+      <!-- topbar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button id="backBtn" class="icon-btn" title="Back to conversations" aria-label="Back">☰</button>
+          <div class="title-wrap">
+            <div class="page-title">AI Blog Studio</div>
+            <div class="page-sub">Enter a topic to generate a researched blog</div>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="status" id="status">Ready</div>
+        </div>
+      </header>
+
+      <!-- chat container -->
+      <section id="chatPane" class="chat-pane" role="main" aria-live="polite" aria-atomic="false">
+        <div id="messages" class="messages">
+          <!-- message bubbles inserted here -->
+          <div class="system-msg">
+            <div class="system-inner">
+              <strong>Welcome!</strong> Type a topic below and press <kbd>Enter</kbd> or click <em>Send</em> to generate a blog.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- bottom composer (sticky) -->
+      <div class="composer">
+        <div class="composer-controls">
+          <input id="topicInput" class="composer-input" type="text" placeholder="Enter blog topic (e.g. The Future of Renewable Energy)" aria-label="Topic"/>
+          <button id="sendBtn" class="send-btn" title="Generate blog">Send →</button>
+        </div>
+
+        <div class="composer-meta">
+          <div class="meta-left">
+            <select id="personaSelect" title="Persona">
+              <option value="balanced">Balanced</option>
+              <option value="technical">Technical</option>
+              <option value="creative">Creative</option>
+              <option value="concise">Concise</option>
+            </select>
+
+            <select id="toneSelect" title="Tone">
+              <option value="professional">Professional</option>
+              <option value="conversational">Conversational</option>
+              <option value="journalistic">Journalistic</option>
+            </select>
+          </div>
+
+          <div class="meta-right">
+            <span id="latency">— ms</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Minimal dependencies: none. Everything in script.js -->
+  <script src="script.js"></script>
+</body>
+</html>
