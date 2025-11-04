@@ -24,26 +24,7 @@ It combines **LangChain**, **OpenRouter LLM**, and **web-based research (Wikiped
 
 ## 🧠 System Architecture
 
-```mermaid
-graph TD
-    A[User Enters Topic] --> B[Frontend (HTML/CSS/JS)]
-    B -->|POST /generate| C[Flask Backend (Render)]
-    C --> D[Research Tools (Wikipedia + DuckDuckGo)]
-    D --> E[OpenRouter LLM via LangChain]
-    E --> F[Blog Writer Agent (Heading, Intro, Content, Summary)]
-    F --> G[Blog Saved as Markdown (/outputs)]
-    G --> H[Displayed on Frontend (ChatGPT-like Interface)]
-
-    style A fill:#111,stroke:#6cf,stroke-width:1px
-    style B fill:#0b1c2d,stroke:#2eb8ff,stroke-width:1px
-    style C fill:#102030,stroke:#2eb8ff,stroke-width:1px
-    style D fill:#112d50,stroke:#58a6ff,stroke-width:1px
-    style E fill:#162842,stroke:#58a6ff,stroke-width:1px
-    style F fill:#1b3a5a,stroke:#7dc3ff,stroke-width:1px
-    style G fill:#0d2438,stroke:#4fc3f7,stroke-width:1px
-    style H fill:#071b2d,stroke:#00e5ff,stroke-width:1px
-
-```
+<pre> ```mermaid graph TD A[User Enters Topic] --> B[Frontend (HTML/CSS/JS)] B -->|POST /generate| C[Flask Backend (Render)] C --> D[Research Tools (Wikipedia + DuckDuckGo)] D --> E[OpenRouter LLM via LangChain] E --> F[Blog Writer Agent (Heading, Intro, Content, Summary)] F --> G[Blog Saved as Markdown (/outputs)] G --> H[Displayed on Frontend (ChatGPT-like Interface)] style A fill:#111,stroke:#6cf,stroke-width:1px style B fill:#0b1c2d,stroke:#2eb8ff,stroke-width:1px style C fill:#102030,stroke:#2eb8ff,stroke-width:1px style D fill:#112d50,stroke:#58a6ff,stroke-width:1px style E fill:#162842,stroke:#58a6ff,stroke-width:1px style F fill:#1b3a5a,stroke:#7dc3ff,stroke-width:1px style G fill:#0d2438,stroke:#4fc3f7,stroke-width:1px style H fill:#071b2d,stroke:#00e5ff,stroke-width:1px ``` </pre>
 
 🚀 Features
 -----------
