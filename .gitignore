@@ -1,0 +1,71 @@
+# --------------------------------------
+# 🧠 Blog Generation System - .gitignore
+# --------------------------------------
+
+# ⚙️ Virtual Environment
+venv/
+venv311/
+venv312/
+.venv/
+env/
+ENV/
+
+# 🧰 Python Cache Files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 🗂 IDE & Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 📦 Package / Build Artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+*.manifest
+*.spec
+
+# 📊 Logs & Reports
+logs/
+*.log
+*.tmp
+*.bak
+
+# 🔐 Environment & Keys
+.env
+.env.local
+.env.production
+.env.development
+.env.test
+.env.example  # keep this, remove only if confidential values are added
+
+# 🧠 Output Files (auto-generated blogs)
+outputs/*.md
+outputs/*.txt
+!outputs/.gitkeep  # keep folder tracked, ignore content
+
+# 🧪 Jupyter / Research Files
+.ipynb_checkpoints/
+*.ipynb
+
+# 🖼️ Misc / System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 🚫 Temporary Files
+~$*
+*.old
+*.orig
+*.tmp
+*.bak
+
+# 🧩 Optional: VSCode or PyCharm project settings
+.settings/
+.mypy_cache/
+pytest_cache/
+coverage/
