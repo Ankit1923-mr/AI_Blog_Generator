@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
-from agents.blog_agent import generate_blog
+from agents.blog_writer_agent import generate_blog   # ✅ correct import
 
 app = Flask(__name__)
 CORS(app)  # allow frontend requests (e.g. from Vercel or Netlify)
